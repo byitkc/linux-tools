@@ -60,6 +60,11 @@ if [ $gui ]; then
         arduino \
     )
 
+    # Adding Libre Office
+    PACMAN_INSTALL+=( \
+        libreoffice-fresh \
+    )
+
     # Adding Preferred Web Browser
     PACMAN_INSTALL+=( \
         firefox \
@@ -93,6 +98,7 @@ fi
 PACMAN_INSTALL+=( \
     bash-completion \
     bind-tools \
+    catfish \
     fakeroot \
     git \
     libnotify \
