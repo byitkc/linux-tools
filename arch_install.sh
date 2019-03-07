@@ -62,7 +62,7 @@ if [ $gui ]; then
 
     # Adding Preferred Web Browser
     PACMAN_INSTALL+=( \
-        chromium \
+        firefox \
     )
 
     # Adding Remmina and Plugins
