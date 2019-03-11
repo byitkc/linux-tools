@@ -79,13 +79,6 @@ if [ $gui ]; then
         telepathy-glib \
         xorg-server-xephyr \
     )
-    
-    # Define packages that should be installed by PAMAC from AUR
-    PAMAC_BUILD=( \
-        nomachine \
-        visual-studio-code-bin \
-        wavebox-bin \
-    )
 
 else
     echo "Nope!"
@@ -159,13 +152,6 @@ if [ "$virt" = "kvm" ]; then
         virt-manager \
     )
 fi
-
-# Define packages that should be installed by PAMAC from AUR
-PAMAC_BUILD=( \
-    nomachine \
-    visual-studio-code-bin \
-    wavebox-bin \
-)
 
 # Installation of Groups
 GROUPINSTALL=()
@@ -294,3 +280,6 @@ fi
 # Additional Installations from AUR
 echo "Please proceed with installing any of the following that you would like."
 echo "Clipit Clipboard Manager: https://aur.archlinux.org/packages/clipit/"
+echo "NoMachine: https://aur.archlinux.org/packages/nomachine/"
+echo "Visual Studio Code: https://aur.archlinux.org/packages/visual-studio-code-bin/"
+echo "Wavebox: https://wavebox.io/download"
