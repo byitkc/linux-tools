@@ -130,6 +130,11 @@ PACMAN_INSTALL+=( \
     rclone \
 )
 
+# Wifi Tools
+PACMAN_INSTALL+=( \
+    wireless_tools \
+)
+
 # Adding Dependencies for OneDrive
 PACMAN_INSTALL+=( \
     curl \
