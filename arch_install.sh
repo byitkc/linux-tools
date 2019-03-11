@@ -92,7 +92,10 @@ else
     #PACMAN_INSTALL+=()
 fi
 
-
+# Basic Development Packages
+PACMAN_INSTALL+=( \
+    base-devel \
+    )
 
 # Basic Tools
 PACMAN_INSTALL+=( \
@@ -287,3 +290,7 @@ if [ ! -L ~/vpns ]
     else
         echo "Link alread established for VPNs, skipping."
 fi
+
+# Additional Installations from AUR
+echo "Please proceed with installing any of the following that you would like."
+echo "Clipit Clipboard Manager: https://aur.archlinux.org/packages/clipit/"
