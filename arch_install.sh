@@ -35,10 +35,10 @@ else
 fi
 
 
-if [ ! -d ~/VMs ]
+if [ ! -d ~/vms ]
     then
         echo "Creating VM's Folder"
-        mkdir ~/VMs
+        mkdir ~/vms
 fi
 
 # Initialize Array for Package Management Removal
@@ -106,8 +106,11 @@ PACMAN_INSTALL+=( \
     openvpn \
     python-pip \
     python3 \
+    rsync \
+    unzip \
     vim \
     xorg-xprop \
+    wget \
     )
 
 # SSH Server
@@ -115,7 +118,17 @@ PACMAN_INSTALL+=( \
     openssh \
 )
 
+# Backend for Python Stuff
+PACMAN_INSTALL+=( \
+    # Backend for Python Plotting
+    tk \
+)
 
+# Cloud Storage Access
+PACMAN_INSTALL+=( \
+    # Rclone for Google Drive and Others
+    rclone \
+)
 
 # Adding Dependencies for OneDrive
 PACMAN_INSTALL+=( \
@@ -226,7 +239,7 @@ read -p "Once you have completed the instructions in #6, please press Enter!" -n
 # Setup Remmina Directory
 if [ ! -L ~/.local/share/remmina ]
     then
-        echo "We are mapping Remmina settings to a shared file at ~/OneDrive-Personal/Settings/remmina"
+        echo "We are mapping Remmina settings to a shared file at ~/OneDrive-Personal/settings/remmina"
         if [ -d ~/.local/share/remmina ]
             then
                 echo "Moving existing remmina folder to remmina.old"
@@ -234,8 +247,8 @@ if [ ! -L ~/.local/share/remmina ]
             else
                 echo "Existing remmina folder not found, skipping move."
         fi
-        echo "Creating Symlink for Remmina Settings"
-        ln -s ~/onedrive-personal/Settings/remmina ~/.local/share/remmina
+        echo "Creating Symlink for Remmina settings"
+        ln -s ~/onedrive-personal/settings/remmina ~/.local/share/remmina
     else
         echo "Link already established for save Remmina Sessions"
 fi
@@ -243,14 +256,14 @@ fi
 # We are going to link to the Shared Font directory.
 if [ ! -L ~/.local/share/fonts ]
     then
-        echo "We are mapping the user fons to a shared file at ~/OneDrive-Personal/Settings/fonts"
+        echo "We are mapping the user fons to a shared file at ~/OneDrive-Personal/settings/fonts"
         if [ -d ~/.local/share/fonts ]
             then
                 echo "Moving existing Fonts folder to backup folder (~/fonts.old)"
                 mv ~/.local/share/fonts ~/.local/share/fonts.old
         fi
         echo "Establishing link for Shared Fonts!"
-        ln -s ~/onedrive-personal/Settings/fonts ~/.local/share/fonts
+        ln -s ~/onedrive-personal/settings/fonts ~/.local/share/fonts
     else
         echo "Link alread established for Fonts, skipping."
 fi
@@ -258,14 +271,14 @@ fi
 # We are going to link to the Shared VPN Profile directory.
 if [ ! -L ~/vpns ]
     then
-        echo "We are mapping the user VPNs to a shared file at ~/OneDrive-Personal/Settings/VPNs"
+        echo "We are mapping the user VPNs to a shared file at ~/OneDrive-Personal/settings/VPNs"
         if [ -d ~/vpns ]
             then
                 echo "Moving existing VPNs folder to backup folder (~/VPNs.old)"
                 mv ~/vpns ~/vpns.old
         fi
         echo "Establishing link for VPNs!"
-        ln -s ~/onedrive-personal/Settings/VPNs ~/vpns
+        ln -s ~/onedrive-personal/settings/VPNs ~/vpns
     else
         echo "Link alread established for VPNs, skipping."
 fi
