@@ -103,6 +103,8 @@ PACMAN_INSTALL+=( \
     python-pip \
     python3 \
     rsync \
+    # Lightweight Screenshot Tools
+    scrot \
     unzip \
     vim \
     xorg-xprop \
@@ -110,9 +112,7 @@ PACMAN_INSTALL+=( \
     )
 
 # SSH Server
-PACMAN_INSTALL+=( \
-    openssh \
-)
+PACMAN_INSTALL+=(openssh)
 
 # Backend for Python Stuff
 PACMAN_INSTALL+=( \
