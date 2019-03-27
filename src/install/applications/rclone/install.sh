@@ -22,6 +22,14 @@ if [ ! -d /home/byoung/gdrive ]; then
     mkdir /home/byoung/gdrive
 fi
 
+# Create the remote objects
+echo "We are going to have to create the applicable remote setups manually by running"
+echo "rclone config for each directory to sync. By default we are syncing:"
+echo "onedrive-personal"
+echo "onedrive-work"
+echo "gdrive"
+read -p "Once you have completed this, please press Enter!" -n1 -s
+
 echo "You must now start the services that are required by running: "
 echo "systemctl --user start <service>"
 echo "for all rclone-* services"
