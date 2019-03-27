@@ -1,0 +1,13 @@
+[Unit]
+Description=OneDrive RClone Sync
+Documentation=
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/rclone-sync.sh gdrive: /home/byoung/gdrive 10
+Restart=on-failure
+RestartSec=15
+
+[Install]
+WantedBy=default.target

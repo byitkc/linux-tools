@@ -131,14 +131,6 @@ PACMAN_INSTALL+=( \
     wireless_tools \
 )
 
-# Adding Dependencies for OneDrive
-PACMAN_INSTALL+=( \
-    curl \
-    dmd \
-    sqlite \
-)
-
-
 
 # Adding Virtualization Support via QEMU/KVM
 if [ "$virt" = "kvm" ]; then
@@ -211,13 +203,10 @@ else
     echo "There was a problem locating Visual Studio Code, skipping autoconfig"
 fi
 
-### OneDrive Sync
-read -p "Would you like to setup Onedrive CLI? [y/N]" -n 1 -r
-if  [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo -e "\n"
-    sudo -v
-    setup_onedrive
-fi
+### RClone Setup
+echo "You are going to have to manually setup rclone synchronization at this point."
+echo "There is a script that is under development you can run under ./src/install/applications/rclone/install.sh, run at own risk!"
+read -p "Once you have completed the instructions above, please press Enter!" -n1 -s
 
 ### ASDM Launcher
 sudo cp -r ./src/install/launchers/asdm /opt/asdm
